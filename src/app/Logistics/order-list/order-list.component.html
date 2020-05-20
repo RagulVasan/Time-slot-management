@@ -1,0 +1,106 @@
+<mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Enter Order Id ">
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
+  <ng-container matColumnDef="orderid">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; text-align: center;"> Order Details </th>
+    <td mat-cell *matCellDef="let appointment">     
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Order Id
+      </mat-panel-title>
+      <mat-panel-description>{{appointment.orderId}}</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+      <table>
+        <tr>
+          <td>
+            Logistics Name
+          </td>
+          <td>
+            : <mat-label>{{appointment.companyName}}</mat-label> 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pickup Date
+          </td>
+          <td>
+            : <mat-label>{{appointment.date}}</mat-label>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              Time             
+            </td>
+            <td>
+              : <mat-label>{{appointment.timeslot}}</mat-label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              LoadingSlot             
+            </td>
+            <td>
+              : <mat-label>{{appointment.loadingslot}}</mat-label>
+            </td>
+          </tr>
+        <tr>
+          <td>
+            Store Name  
+          </td>
+          <td>
+            : <mat-label>{{appointment.storename}}</mat-label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Landmark  
+          </td>
+          <td>
+            : <mat-label>{{appointment.landmark}}</mat-label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Location             
+          </td>
+          <td>
+            : <mat-label>{{appointment.location}}</mat-label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vehicle No
+          </td>
+          <td>
+            : <mat-label>{{appointment.vehicleNo}}</mat-label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Driver Name             
+          </td>
+          <td>
+            : <mat-label>{{appointment.driverName}}</mat-label>
+          </td>
+        </tr>
+      </table>
+    </div>
+      <mat-action-row >
+        <a mat-button color="primary" [routerLink]="['/update', appointment.id]" >EDIT</a>
+        <a mat-button color="primary" [routerLink]="['/updatevehicle', appointment.id]" >UPDATE</a>
+        <button mat-button color="warn" (click)="onDelete(appointment.id,appointment.date,appointment.loadingslot,appointment.timeslot,appointment.orderId)">CANCEL</button>
+      </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+    </td>
+  </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let appointments; columns: columns"></tr>
+  </table>

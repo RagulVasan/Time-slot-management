@@ -1,0 +1,45 @@
+<div class="container">
+     <form  [formGroup]="form" class="form-content" matForm matForm (submit)="saveAppointment()" >
+        <mat-form-field class="example-full-width">
+            <mat-label>Order Id</mat-label>
+            <input matInput type="text" formControlName="orderId" placeholder="Order Id">                
+            <!--<mat-error *ngIf="form.get('orderId').invalid">Please enter Order id</mat-error>-->
+          </mat-form-field>          
+          <mat-form-field class="example-full-width">
+            <mat-label>Logistics Company Name</mat-label>
+            <input matInput type="text" formControlName="companyName" placeholder="Logistics Company Name">                
+            <!--<mat-error *ngIf="form.get('companyName').invalid">Please enter Comapany Name</mat-error>-->
+          </mat-form-field>    
+          <mat-form-field>
+            <mat-label>Choose the pick up date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>         
+            <!--<mat-error *ngIf="form.get('date').invalid">Please Choose the date</mat-error>-->
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Store name</mat-label>
+            <input matInput type="text"  placeholder="Store name" formControlName="storename">                
+            <!--<mat-error *ngIf="form.get('vehicleType').invalid">Please enter Vehicle Type</mat-error>-->
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Landmark</mat-label>
+            <input matInput type="text"  placeholder="Landmark" formControlName="landmark">                
+            <!--<mat-error *ngIf="form.get('vehicleType').invalid">Please enter Vehicle Type</mat-error>-->
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Location</mat-label>
+            <input matInput type="text"  placeholder="Location" formControlName="location">                
+            <!--<mat-error *ngIf="form.get('vehicleType').invalid">Please enter Vehicle Type</mat-error>-->
+          </mat-form-field>
+          <button 
+          mat-raised-button color="primary" 
+          type="submit" 
+          style="width: fit-content;font-size:large; align-self: center;">
+          Submit
+      </button>
+
+    </form>
+</div>
+        

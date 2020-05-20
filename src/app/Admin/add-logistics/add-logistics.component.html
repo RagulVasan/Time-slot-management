@@ -1,0 +1,21 @@
+<div class="container">
+  <form  [formGroup]="form" class="form-content" matForm matForm (submit)="savedetails()" >
+     <mat-form-field class="example-full-width">
+         <mat-label>Logistics Id</mat-label>
+         <input matInput type="text" formControlName="logisticsId" placeholder="Logistics Id">                
+         <!--<mat-error *ngIf="form.get('orderId').invalid">Please enter Order id</mat-error>-->
+       </mat-form-field>          
+       <mat-form-field class="example-full-width">
+         <mat-label>Logistics Name</mat-label>
+         <input matInput type="text" formControlName="logisticsName" placeholder="Logistics Name">                
+         <!--<mat-error *ngIf="form.get('companyName').invalid">Please enter Comapany Name</mat-error>-->
+       </mat-form-field>    
+       <button 
+       mat-raised-button color="primary" 
+       type="submit" 
+       style="width: fit-content;font-size:large; align-self: center;">
+       Submit
+   </button>
+
+ </form>
+</div>
